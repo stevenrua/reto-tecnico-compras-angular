@@ -1,0 +1,115 @@
+<div *ngIf="products1">
+    <h1
+      *ngIf="products1"
+      style="margin-bottom: 0px; margin-top: 30px; margin-left: 60px"
+    >
+      Productos
+    </h1>
+    <hr />
+    <div
+      style="
+        margin-left: 60px;
+        margin-right: 60px;
+        margin-top: 0;
+        margin-bottom: 0;
+      "
+    >
+      <button
+        mat-button
+        color="black"
+        style="display: flex; margin: 1rem 0 1rem auto"
+        (click)="guardar()"
+      >
+        <mat-icon>add_box</mat-icon>
+        <small>Nuevo Producto</small>
+      </button>
+  
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+        <!-- idAffiliate Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id_Producto</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.id }}
+          </td>
+        </ng-container>
+  
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nombre Del Producto</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.name }}
+          </td>
+        </ng-container>
+  
+        <!-- Age Column -->
+        <ng-container matColumnDef="inInventory">
+          <th mat-header-cell *matHeaderCellDef>En Inventario</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.inInventory }}
+          </td>
+        </ng-container>
+  
+        <!-- Email Column -->
+        <ng-container matColumnDef="enabled">
+          <th mat-header-cell *matHeaderCellDef>disponible</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.enabled }}
+          </td>
+        </ng-container>
+
+        <!-- Age Column -->
+        <ng-container matColumnDef="min">
+            <th mat-header-cell *matHeaderCellDef>minimo</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.min }}
+            </td>
+          </ng-container>
+
+        <!-- Age Column -->
+        <ng-container matColumnDef="max">
+            <th mat-header-cell *matHeaderCellDef>maximo</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.max }}
+            </td>
+          </ng-container>
+  
+        <!-- Botones -->
+        <ng-container matColumnDef="opciones">
+          <th mat-header-cell *matHeaderCellDef>Opciones</th>
+          <td mat-cell *matCellDef="let element">
+            <div>
+              <button
+                mat-button
+                (click)="edit(element.id)"
+                color="black"
+              >
+                <mat-icon>update</mat-icon>
+              </button>
+              <button
+                mat-button
+                (click)="delete(element.id)"
+                color="black"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </div>
+  </div>
+  <div class="h1" *ngIf="!products1">
+    <span>lista vacia</span>
+  </div>  
+  
+  
+  

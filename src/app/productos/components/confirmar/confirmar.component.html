@@ -1,0 +1,14 @@
+<h1>¿Está Seguro?</h1>
+
+<hr />
+<p style="text-align: center;">Está a punto de borrar el producto <strong>{{ data.name }}</strong> </p>
+
+<h2>Desea Continuar</h2>
+
+<div class="cosa" mat-dialog-actions>
+  <button mat-raised-button (click)="cerrar()" color="warn">Cancelar</button>
+  <button mat-raised-button (click)="borrar()" color="primary">
+    Sí, borrar!
+  </button>
+</div>
+

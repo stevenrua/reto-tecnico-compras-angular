@@ -1,0 +1,74 @@
+<h1 style="margin-left: 60px; margin-right: 60px; margin-top: 30px">
+    {{ product.id ? "Editando Producto" : "Nuevo Producto" }}
+  </h1>
+  <hr />
+  <br />
+  <div class="addCitas">
+    <form [formGroup]="miFormulario" autocomplete="off">
+      <div class="row">
+        <div class="col-12" style="text-align: start">
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="name" required />
+            <div style="text-align: initial">
+              <span
+                *ngIf="validarCampo('name')"
+                class="text-danger"
+                center-mensage
+                >{{ validatorName }}
+              </span>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>En Inventario</mat-label>
+            <input type="number" matInput formControlName="inInventory" required />
+            <div style="text-align: initial">
+              <span *ngIf="validarCampo('inInventory')" class="text-danger"
+                >{{ validatorInInventory }}
+              </span>
+            </div>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Disponible</mat-label>
+            <input type="boolean" matInput formControlName="enabled" required />                       
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Minimo</mat-label>
+            <input type="number" matInput formControlName="min" required />
+            <div style="text-align: initial">
+              <span *ngIf="validarCampo('min')" class="text-danger"
+                >{{ validatorMin }}
+              </span>
+            </div>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Maximo</mat-label>
+            <input type="text" matInput formControlName="max" required />
+            <div style="text-align: initial">
+              <span *ngIf="validarCampo('max')" class="text-danger"
+                >{{ validatorMax }}
+              </span>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="col-12 operation">
+          <button
+            [disabled]="miFormulario.invalid"
+            mat-raised-button
+            color="primary"
+            style="margin-right: 10px"
+            (click)="updateProduct()"
+          >
+            Guardar
+          </button>
+          <button mat-raised-button color="warn" (click)="returnHome()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>

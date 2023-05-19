@@ -1,0 +1,40 @@
+<mat-toolbar class="toolbar-nav" color="primary">
+  <mat-toolbar-row>
+    <button
+      mat-button
+      class="button button-home"
+      aria-label="button to go home"
+      [routerLink]="['']"
+    >
+      <h1>Sistema de Compras - Talent Zone</h1>
+    </button>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <button
+      mat-button
+      class="button button-citas"
+      aria-label="button with a calendar today icon"
+      [routerLink]="['/citas']"
+    >
+      <mat-icon>calendar_today</mat-icon> Citas
+    </button>
+    <button
+      mat-button
+      class="button button-pruebas"
+      aria-label="button with a description icon"
+      [routerLink]="['/productosfd']"
+    >
+      <mat-icon>credit_card</mat-icon> Comprar
+    </button>
+    <button
+      mat-button
+      class="button button-afiliados"
+      aria-label="button with a face icon"
+      [routerLink]="['/productos']"
+    >
+      <mat-icon>article</mat-icon> Producto
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
