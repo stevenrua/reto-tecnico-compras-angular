@@ -18,6 +18,11 @@ const routes: Routes = [
       import('./compras/compras.module').then((m) => m.ComprasModule),
   }, 
   {
+    path: 'historial',
+    loadChildren: () =>
+      import('./historial/historial.module').then((m) => m.HistorialModule),
+  }, 
+  {
     path: '**',
     redirectTo: '',
   },

@@ -3,15 +3,15 @@
     <form [formGroup]="compraForm" (ngSubmit)="onSubmit()">
       <div formGroupName="client">
         <div>
-          <label for="identity">Identity:</label>
-          <input type="number" id="identity" formControlName="identity">
-        </div>
-        <div>
-          <label for="idType">ID Type:</label>
+          <label for="idType">Tipo de Identificación:</label>
           <input type="text" id="idType" formControlName="idType">
         </div>
         <div>
-          <label for="clientName">Client Name:</label>
+          <label for="identity">Identificación:</label>
+          <input type="number" id="identity" formControlName="identity">
+        </div>
+        <div>
+          <label for="clientName">Nombre del Comprador:</label>
           <input type="text" id="clientName" formControlName="clientName">
         </div>
       </div>
@@ -19,13 +19,13 @@
         <div *ngFor="let compraItem of compraControls.controls; let i = index">
           <div [formGroupName]="i">
             <div>
-              <label for="idProduct{{ i }}">ID Product:</label>
-              <select id="idProduct{{ i }}" formControlName="idProduct">
+              <label for="idProduct">Nombre del Producto:</label>
+              <select id="idProduct" formControlName="idProduct">
                 <option *ngFor="let productId of products1" [value]="productId.id">{{ productId.name }}</option>
               </select>
             </div>
             <div>
-              <label for="quantity{{ i }}">Quantity:</label>
+              <label for="quantity{{ i }}">Cantidad:</label>
               <input type="number" id="quantity{{ i }}" formControlName="quantity">
             </div>
             <button type="button" (click)="removeCompra(i)">Eliminar</button>
