@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="compraForm" (ngSubmit)="onSubmit()">
+      <div formGroupName="client">
+        <div>
+          <label for="identity">Identity:</label>
+          <input type="number" id="identity" formControlName="identity">
+        </div>
+        <div>
+          <label for="idType">ID Type:</label>
+          <input type="text" id="idType" formControlName="idType">
+        </div>
+        <div>
+          <label for="clientName">Client Name:</label>
+          <input type="text" id="clientName" formControlName="clientName">
+        </div>
+      </div>
+      <div formArrayName="compra">
+        <div *ngFor="let compraItem of compraControls.controls; let i = index">
+          <div [formGroupName]="i">
+            <div>
+              <label for="idProduct{{ i }}">ID Product:</label>
+              <select id="idProduct{{ i }}" formControlName="idProduct">
+                <option *ngFor="let productId of products1" [value]="productId.id">{{ productId.name }}</option>
+              </select>
+            </div>
+            <div>
+              <label for="quantity{{ i }}">Quantity:</label>
+              <input type="number" id="quantity{{ i }}" formControlName="quantity">
+            </div>
+            <button type="button" (click)="removeCompra(i)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button type="button" (click)="addCompra()">Agregar Compra</button>
+      </div>
+      <button type="submit">Guardar</button>
+    </form>
+  </div>
+</div>

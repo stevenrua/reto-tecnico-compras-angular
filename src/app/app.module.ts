@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+//import { NewCompraComponent } from './compras/pages/new-compra/new-compra.component';
 //import { ConfirmarComponent } from './components/confirmar/confirmar.component';
 
 @NgModule({
